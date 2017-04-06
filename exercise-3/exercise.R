@@ -1,22 +1,40 @@
 # Exercise 3: Vector and function practice
 
 # Create a vector `marbles` with 6 different colors in it (representing marbles)
-
+marbles <- c("red","orange","yellow","green","blue","purple")
 
 # Use the `sample` function to select a single marble
-
+marble.one <- sample(marbles, 1)
 
 # Write a function MarbleGame that does the following:
 # - Takes in a `guess` of a marble color
 # - Randomly samples a marble
 # - Returns whether or not the person guessed accurately (preferrably a full phrase)
-
+MarbleGame <- function(guess) {
+  my.marble <- sample(marbles, 1)
+  if(my.marble == guess) {
+    return("You guessed correctly!")
+  } else {
+    return("You lose! Lol.")
+  }
+}
 
 # Play the marble game!
-
+MarbleGame('red')
 
 # Bonus: Play the marble game until you win, keeping track of how many tries you take
-
+# IT TOOK ME SO LONG OMG (9 tries)
 
 ## Double bonus(answer not provided): play the game 1000X (until you win) and track the average number of tries
 # Is it what you expected based on the probability
+lost <- TRUE
+games <- 0
+while(lost) {
+  games <- games + 1
+  result <- MarbleGame('blue')
+  if(result == "You guessed correctly!") {
+    lost <- FALSE
+  }
+}
+print(games)
+
